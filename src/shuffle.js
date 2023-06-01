@@ -31,6 +31,21 @@ module.exports = (array) => {
 
 // The MIT License
 //
+// describe("See All Bots button works", () => {
+//   test("When See All Bots button is clicked, bot cards display below", async () => {
+//     await driver.get("http://localhost:8000");
+//     await driver.wait(until.titleIs("Duel Duo"), 1000);
+
+//     const seeAllBotsButton = await driver.findElement(By.id("see-all-bots-button"));
+//     await seeAllBotsButton.click();
+
+//     const botCards = await driver.findElements(By.className("bot-card"));
+//     expect(botCards.length).toBeGreaterThan(0);
+//   });
+// });
+
+
+
 // Copyright JS Foundation and other contributors <https://js.foundation/>
 //
 // Based on Underscore.js, copyright Jeremy Ashkenas,

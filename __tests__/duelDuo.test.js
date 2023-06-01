@@ -1,9 +1,17 @@
 const { Builder, Browser, By, until } = require("selenium-webdriver");
+const firefox = require("selenium-webdriver/firefox");
 
 let driver;
 
 beforeEach(async () => {
-  driver = await new Builder().forBrowser(Browser.CHROME).build();
+  const geckoDriverPath = "C:\Users\shwif\OneDrive\Desktop\DevMountain\Assessments!\assessment-qa-devops\Gecko_Driver\geckodriver.exe";
+  const firefoxOptions = new firefox.Options().setBinary("C:\Users\shwif\AppData\Local\Microsoft\WindowsApps\Mozilla.Firefox_n80bbvh6b1yt2\firefox.exe");
+
+  driver = await new Builder()
+    .forBrowser(Browser.FIREFOX)
+    .setFirefoxOptions(firefoxOptions)
+    .setFirefoxService(new firefox.ServiceBuilder(geckoDriverPath))
+    .build();
 });
 
 afterEach(async () => {
