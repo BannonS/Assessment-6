@@ -3,13 +3,31 @@ const path = require('path');
 const cors = require('cors');
 const bots = require("./src/botsData");
 const shuffle = require("./src/shuffle");
+const axios = require('axios');
+const app = express();
+
+// Updated ip address
+const baseURL = 'http://35.89.218.209/api';
+
+const axiosInstance = axios.create({
+  baseURL: baseURL,
+});
+
+app.get('/api/data', async (req, res) => {
+  try {
+    const response = await axiosInstance.get('/data');
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.sendStatus(500);
+  }
+});
 
 const playerRecord = {
   wins: 0,
   losses: 0,
 };
 
-const app = express();
 app.use(express.json());
 app.use(cors());
 
