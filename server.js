@@ -55,7 +55,7 @@ app.get("/api/robots", (req, res) => {
     rollbar.error('Error getting bots', { error });
 
     rollbar.info('Additional information about the error', { request: req });
-    
+
     res.sendStatus(400);
   }
 });
